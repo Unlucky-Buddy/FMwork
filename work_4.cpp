@@ -18,9 +18,19 @@ int main()
   int temp = getRandomNumber(min, max);
   int *array; // создаём указатель для выделения памяти
   array = new int[sizeArray]; // выделяем память под массив
+  int countGo = 0;
+
 
   for (int i = 0; i < sizeArray; i++) {
-      array[i] = getRandomNumber(min, max);
+    array[i] = getRandomNumber(min, max);
+    for (int ii = 0; ii <= i - 1; ii++) {
+      if (array[i] == array[ii]) {
+        i -= 1;
+        break;
+      }
+    }
+  }
+  for (int i = 0; i < sizeArray; i++) {
       printf("%d\t", array[i]);
       if ((i % 10 == 9) & (i != 0)) {
           printf("\n");
@@ -34,6 +44,7 @@ int main()
               temp = array[j];
               array[j] = array[j + 1];
               array[j + 1] = temp;
+              countGo ++;
           }
       }
   }
@@ -47,6 +58,8 @@ int main()
           printf("\n");
       }
   }
+
+  printf("\n\nКоличество перестановок: %d", countGo);
 
   delete [] array; // освобождаем память, иначе для чего мы учим с++)
 
