@@ -63,34 +63,5 @@ int main() {
     h->idClient.idClient
   );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
 	return 0;
 }
